@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Capsulify')</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/categories.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ filemtime(public_path('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/categories.css') }}?v={{ filemtime(public_path('css/categories.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/notes.css') }}?v={{ filemtime(public_path('css/notes.css')) }}">
 </head>
 
 <body>
@@ -16,6 +17,7 @@
             <nav class="nav">
                 <a href="{{ route('categories.index') }}">Категории</a>
                 <a href="{{ route('files.index') }}">Файлы</a>
+                <a href="{{ route('notes.index') }}">Заметки</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="link-button">Выйти</button>
@@ -27,7 +29,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}" defer></script>
 </body>
 
 </html>

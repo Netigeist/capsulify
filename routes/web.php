@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,4 +39,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('files', FileController::class)->only(['index', 'create', 'store', 'destroy']);
     Route::get('/files/{file}/download', [FileController::class, 'download'])->name('files.download');
+
+    Route::resource('notes', NoteController::class);
 });
