@@ -15,6 +15,7 @@
             <a class="brand" href="{{ route('home') }}">Capsulify</a>
             <nav class="nav">
                 <a href="{{ route('categories.index') }}">Категории</a>
+                <a href="{{ route('files.index') }}">Файлы</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="link-button">Выйти</button>
