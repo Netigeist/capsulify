@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\EmailWithDomain;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ResetPasswordRequest extends FormRequest
@@ -14,16 +15,16 @@ class ResetPasswordRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'email' => strtolower((string) $this->input('email')),
+            'email' => strtolower(trim((string) $this->input('email'))),
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'token' => ['required', 'string'],
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string', 'min:8'],
+            'token' => ['bail', 'required', 'string'],
+            'email' => ['bail', 'required', 'string', 'email:rfc', new EmailWithDomain],
+            'password' => ['bail', 'required', 'string', 'min:8'],
         ];
     }
 

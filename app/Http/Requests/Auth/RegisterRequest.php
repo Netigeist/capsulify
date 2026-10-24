@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\EmailWithDomain;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -15,16 +16,24 @@ class RegisterRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'email' => strtolower((string) $this->input('email')),
+            'email' => strtolower(trim((string) $this->input('email'))),
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'min:3', 'max:20', 'regex:/^[A-Za-z]+$/'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')],
-            'password' => ['required', 'string', 'min:8'],
+            'username' => ['bail', 'required', 'string', 'min:3', 'max:20', 'regex:/^[A-Za-z]+$/'],
+            'email' => [
+                'bail',
+                'required',
+                'string',
+                'email:rfc',
+                new EmailWithDomain,
+                'max:255',
+                Rule::unique('users', 'email'),
+            ],
+            'password' => ['bail', 'required', 'string', 'min:8'],
         ];
     }
 

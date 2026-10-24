@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\EmailWithDomain;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ForgotPasswordRequest extends FormRequest
@@ -14,14 +15,14 @@ class ForgotPasswordRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'email' => strtolower((string) $this->input('email')),
+            'email' => strtolower(trim((string) $this->input('email'))),
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'email' => ['bail', 'required', 'string', 'email:rfc', new EmailWithDomain],
         ];
     }
 
