@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ filemtime(public_path('css/app.css')) }}">
     <link rel="stylesheet" href="{{ asset('css/categories.css') }}?v={{ filemtime(public_path('css/categories.css')) }}">
     <link rel="stylesheet" href="{{ asset('css/notes.css') }}?v={{ filemtime(public_path('css/notes.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}?v={{ filemtime(public_path('css/search.css')) }}">
 </head>
 
 <body>
@@ -18,6 +19,7 @@
                 <a href="{{ route('categories.index') }}">Категории</a>
                 <a href="{{ route('files.index') }}">Файлы</a>
                 <a href="{{ route('notes.index') }}">Заметки</a>
+                <a href="{{ route('search') }}">Поиск</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="link-button">Выйти</button>
