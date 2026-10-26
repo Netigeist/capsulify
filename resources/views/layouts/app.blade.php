@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('css/categories.css') }}?v={{ filemtime(public_path('css/categories.css')) }}">
     <link rel="stylesheet" href="{{ asset('css/notes.css') }}?v={{ filemtime(public_path('css/notes.css')) }}">
     <link rel="stylesheet" href="{{ asset('css/search.css') }}?v={{ filemtime(public_path('css/search.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}?v={{ filemtime(public_path('css/modal.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/toast.css') }}?v={{ filemtime(public_path('css/toast.css')) }}">
 </head>
 
 <body>
@@ -20,23 +22,31 @@
                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Меню</button>
                 <a class="brand" href="{{ route('home') }}">Capsulify</a>
             </div>
+
             <nav id="main-nav" class="nav">
                 <a href="{{ route('categories.index') }}">Категории</a>
                 <a href="{{ route('files.index') }}">Файлы</a>
                 <a href="{{ route('notes.index') }}">Заметки</a>
                 <a href="{{ route('search') }}">Поиск</a>
+
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="link-button">Выйти</button>
                 </form>
             </nav>
+
             <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
         </header>
+
         <main class="page">
             @include('partials.flash')
             @yield('content')
         </main>
     </div>
+
+    @include('partials.modal')
+    @include('partials.toasts')
+
     <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}" defer></script>
 </body>
 

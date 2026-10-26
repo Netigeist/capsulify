@@ -1,9 +1,5 @@
-@if (session('status'))
-    <div class="status">{{ session('status') }}</div>
-@endif
-
 @if ($errors->any())
-    <div class="error-summary">
+    <div class="error-summary" role="alert">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
