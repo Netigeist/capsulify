@@ -16,5 +16,5 @@
 }
 
 .result-type {
-    color: #374151;
+    color: var(--muted);
 }

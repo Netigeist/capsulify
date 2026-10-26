@@ -21,9 +21,9 @@
     gap: 0.5rem 1rem;
     margin: 0 0 1rem;
     padding: 0.75rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--meta-border);
     border-radius: 6px;
-    background: #f9fafb;
+    background: var(--meta-bg);
 }
 
 .meta div {
@@ -33,7 +33,7 @@
 
 .meta dt {
     font-weight: 600;
-    color: #374151;
+    color: var(--muted);
 }
 
 .meta dd {
@@ -68,9 +68,14 @@
     font: inherit;
     box-shadow: none;
     outline-offset: 2px;
-    accent-color: #111827;
+    accent-color: var(--primary);
     flex: 0 0 auto;
     cursor: pointer;
+}
+
+.checkbox-field input[type="checkbox"]:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
 }
 
 .checkbox-field label {

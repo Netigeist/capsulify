@@ -1,21 +1,24 @@
-:root {
-    color-scheme: light;
-}
-
-body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-    background: #f5f5f5;
-    color: #111827;
-}
-
 .container {
     max-width: 420px;
-    margin: 3rem auto;
+    margin: 1rem auto 3rem;
     padding: 1.25rem;
-    background: #ffffff;
-    border: 1px solid #d1d5db;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.brand {
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
 }
 
 h1 {
@@ -32,24 +35,34 @@ label {
 
 input {
     width: 100%;
-    box-sizing: border-box;
     padding: 0.55rem 0.7rem;
-    border: 1px solid #9ca3af;
+    border: 1px solid var(--input-border);
     border-radius: 6px;
-    background: #ffffff;
-    color: #111827;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
 }
 
-button {
+input:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+}
+
+.container button {
     margin-top: 1rem;
     width: 100%;
     padding: 0.6rem;
-    border: 0;
+    border: 1px solid var(--primary);
     border-radius: 6px;
-    background: #111827;
-    color: #ffffff;
+    background: var(--primary);
+    color: var(--primary-text);
     font-weight: 600;
     cursor: pointer;
+}
+
+.container button:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
 }
 
 .links {
@@ -60,20 +73,20 @@ button {
 }
 
 .links a {
-    color: #111827;
+    color: var(--text);
 }
 
 .error {
     margin: 0.25rem 0 0;
-    color: #b91c1c;
+    color: var(--danger);
     font-size: 0.875rem;
 }
 
 .status {
     margin-bottom: 1rem;
     padding: 0.65rem 0.75rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background: #e5e7eb;
-    color: #111827;
+    background: var(--status-bg);
+    color: var(--status-text);
 }

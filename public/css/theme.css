@@ -1,0 +1,109 @@
+:root {
+    color-scheme: light;
+    --bg: #f5f5f5;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #4b5563;
+    --border: #d1d5db;
+    --soft-border: #e5e7eb;
+    --input-border: #9ca3af;
+    --primary: #111827;
+    --primary-text: #ffffff;
+    --secondary-bg: #ffffff;
+    --secondary-text: #111827;
+    --secondary-border: #9ca3af;
+    --danger: #b91c1c;
+    --danger-text: #ffffff;
+    --status-bg: #e5e7eb;
+    --status-text: #111827;
+    --error-bg: #fef2f2;
+    --error-border: #fca5a5;
+    --error-text: #991b1b;
+    --meta-bg: #f9fafb;
+    --meta-border: #e5e7eb;
+    --focus: #6b7280;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #f9fafb;
+    --muted: #d1d5db;
+    --border: #374151;
+    --soft-border: #374151;
+    --input-border: #4b5563;
+    --primary: #f9fafb;
+    --primary-text: #111827;
+    --secondary-bg: #1f2937;
+    --secondary-text: #f9fafb;
+    --secondary-border: #4b5563;
+    --danger: #ef4444;
+    --danger-text: #ffffff;
+    --status-bg: #374151;
+    --status-text: #f9fafb;
+    --error-bg: #7f1d1d;
+    --error-border: #b91c1c;
+    --error-text: #fecaca;
+    --meta-bg: #111827;
+    --meta-border: #374151;
+    --focus: #9ca3af;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+button {
+    font: inherit;
+}
+
+.theme-toggle,
+.menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--secondary-border);
+    border-radius: 6px;
+    background: var(--secondary-bg);
+    color: var(--secondary-text);
+    cursor: pointer;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+    border-color: var(--input-border);
+}
+
+.theme-toggle:focus,
+.menu-toggle:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.auth-topbar {
+    width: 100%;
+    max-width: 420px;
+    margin: 1rem auto 0;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: inline-flex;
+    }
+}

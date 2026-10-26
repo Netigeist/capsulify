@@ -16,16 +16,25 @@
 }
 
 .toolbar a {
-    color: #111827;
+    color: var(--text);
     text-decoration: none;
     padding: 0.25rem 0.5rem;
     border: 1px solid transparent;
     border-radius: 6px;
 }
 
+.toolbar a:hover {
+    border-color: var(--secondary-border);
+}
+
+.toolbar a:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+}
+
 .toolbar a.active {
-    border-color: #9ca3af;
-    background: #e5e7eb;
+    border-color: var(--secondary-border);
+    background: var(--status-bg);
 }
 
 .table {
@@ -36,14 +45,14 @@
 .table th,
 .table td {
     padding: 0.6rem 0.5rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--soft-border);
     text-align: left;
     vertical-align: middle;
 }
 
 .table th {
     font-weight: 600;
-    color: #374151;
+    color: var(--muted);
 }
 
 .actions {
@@ -69,7 +78,7 @@
 }
 
 .empty {
-    color: #4b5563;
+    color: var(--muted);
 }
 
 .pagination {
@@ -83,16 +92,21 @@
 .pagination a,
 .pagination span {
     padding: 0.35rem 0.6rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    color: #111827;
+    color: var(--text);
     text-decoration: none;
-    background: #ffffff;
+    background: var(--surface);
+}
+
+.pagination a:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
 }
 
 .pagination .disabled {
-    color: #6b7280;
-    background: #f3f4f6;
+    color: var(--muted);
+    background: var(--status-bg);
 }
 
 @media (max-width: 768px) {
