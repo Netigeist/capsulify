@@ -1,31 +1,25 @@
 @extends('layouts.auth')
 
-@section('title', 'Новый пароль')
+@section('title', 'Восстановление пароля')
 
 @section('content')
-    <h1>Новый пароль</h1>
+    <h1>Восстановление пароля</h1>
 
-    <form method="POST" action="{{ route('password.update') }}">
+    <form method="POST" action="{{ route('password.email') }}">
         @csrf
-
-        <input type="hidden" name="token" value="{{ $token }}">
 
         <label>
             Email
-            <input type="email" name="email" value="{{ $email ?? old('email') }}" readonly>
+            <input type="email" name="email" value="{{ old('email') }}" required>
         </label>
         @error('email')
             <p class="error">{{ $message }}</p>
         @enderror
 
-        <label>
-            Новый пароль
-            <input type="password" name="password" required>
-        </label>
-        @error('password')
-            <p class="error">{{ $message }}</p>
-        @enderror
-
-        <button type="submit">Изменить пароль</button>
+        <button type="submit">Отправить ссылку</button>
     </form>
+
+    <div class="links">
+        <a href="{{ route('login') }}">Назад ко входу</a>
+    </div>
 @endsection
